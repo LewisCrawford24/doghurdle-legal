@@ -1,46 +1,355 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DogHurdle Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for DogHurdle (iOS game)." />
+
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
-    h1, h2 { color: #333; }
+    :root{
+      --bg1:#4facfe;
+      --bg2:#00f2fe;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --border:rgba(17,24,39,.10);
+      --shadow: 0 20px 50px rgba(0,0,0,.18);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,.35), transparent 60%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding: 22px 14px 42px;
+    }
+
+    .wrap{
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin: 6px 0 14px;
+      color: rgba(255,255,255,.92);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size: 16px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+      font-size: 13px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .pill a{
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .pill a:hover{ text-decoration:underline; }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero{
+      position:relative;
+      padding: 26px 24px 18px;
+      background:
+        radial-gradient(700px 240px at 20% 0%, rgba(37,99,235,.18), transparent 70%),
+        radial-gradient(700px 240px at 80% 0%, rgba(16,185,129,.18), transparent 70%),
+        linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.78));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .titlebox h1{
+      margin:0 0 6px;
+      font-size: 28px;
+      line-height:1.15;
+      letter-spacing:-.3px;
+    }
+
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      line-height:1.4;
+      font-size: 14px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.10);
+      border: 1px solid rgba(37,99,235,.18);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .character{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width: 116px;
+      height: 116px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(17,24,39,.10);
+      box-shadow: 0 12px 30px rgba(0,0,0,.10);
+      overflow:hidden;
+    }
+    .character img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .character .fallback{
+      padding: 14px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+      line-height:1.35;
+    }
+
+    .content{
+      padding: 22px 24px 10px;
+    }
+
+    .toc{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding: 0 24px 18px;
+    }
+
+    .toc a{
+      text-decoration:none;
+      color: var(--text);
+      font-weight:700;
+      font-size: 13px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .toc a:hover{
+      border-color: rgba(37,99,235,.30);
+      box-shadow: 0 10px 20px rgba(37,99,235,.08);
+    }
+
+    h2{
+      margin: 22px 0 10px;
+      font-size: 18px;
+      letter-spacing:-.2px;
+    }
+
+    p, li{
+      color:#374151;
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    ul{
+      margin: 10px 0 0 20px;
+    }
+
+    .callout{
+      margin: 18px 0 0;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(16,185,129,.22);
+      background: rgba(16,185,129,.08);
+      color:#065f46;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footer{
+      padding: 18px 24px 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .footer a{
+      color: var(--accent);
+      text-decoration:none;
+      font-weight:800;
+    }
+    .footer a:hover{ text-decoration:underline; }
+
+    /* Mobile tweaks */
+    @media (max-width: 520px){
+      .titlebox h1{ font-size: 24px; }
+      .character{ width: 96px; height: 96px; border-radius: 18px; }
+      .content{ padding: 18px 18px 8px; }
+      .toc{ padding: 0 18px 16px; }
+      .hero{ padding: 22px 18px 16px; }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Privacy Policy for DogHurdle</h1>
-  <p><strong>Effective Date:</strong> February 2026</p>
+  <div class="wrap">
 
-  <h2>1. Information We Collect</h2>
-  <p>DogHurdle does not collect personal information directly such as names, email addresses, or account details.</p>
-  <p>The App may use third-party services (like ad networks and analytics) that automatically collect certain information...</p>
+    <div class="topbar">
+      <div class="brand">🐾 DogHurdle</div>
+      <div class="pill">
+        <span>Also see:</span>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
 
-  <h2>2. Advertising</h2>
-  <p>The App displays advertisements through third-party ad networks such as Google AdMob. These services may collect:</p>
-  <ul>
-    <li>Device identifiers</li>
-    <li>Approximate location</li>
-    <li>Interaction data with ads</li>
-  </ul>
+    <div class="card">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="titlebox">
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">
+              This policy explains what data DogHurdle may collect and how it’s used.
+            </p>
+            <div class="badge">Effective Date: February 2026</div>
+          </div>
 
-  <h2>3. Analytics</h2>
-  <p>We may use analytics tools to understand user interaction and crash data. This data is anonymous and cannot identify you.</p>
+          <!-- Character image -->
+          <!-- Upload an image named "pug.png" into the repo root OR change the src -->
+          <div class="character" aria-label="DogHurdle character">
+            <img src="pug.png" alt="DogHurdle character" onerror="this.remove(); this.parentNode.innerHTML='<div class=&quot;fallback&quot;>Upload a character image (e.g. <strong>pug.png</strong>)<br/>to show it here.</div>';">
+          </div>
+        </div>
+      </div>
 
-  <h2>4. Children’s Privacy</h2>
-  <p>The App does not knowingly collect personal data from children.</p>
+      <div class="toc" aria-label="Table of contents">
+        <a href="#collect">Information We Collect</a>
+        <a href="#ads">Advertising</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#kids">Children’s Privacy</a>
+        <a href="#storage">Data Storage</a>
+        <a href="#third">Third-Party Services</a>
+        <a href="#changes">Changes</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-  <h2>5. Data Storage</h2>
-  <p>DogHurdle does not store personal data on its servers. All data is stored only on the user’s device.</p>
+      <div class="content">
+        <h2 id="collect">1. Information We Collect</h2>
+        <p>
+          DogHurdle does <strong>not</strong> collect personal information directly such as your name, email address, or
+          account details. The game does not require you to create an account.
+        </p>
+        <p>
+          The App may use third-party services (such as advertising or analytics providers) that automatically collect
+          certain information to operate the App and improve performance.
+        </p>
 
-  <h2>6. Third-Party Services</h2>
-  <p>We use services like Google AdMob which have their own privacy policies.</p>
+        <h2 id="ads">2. Advertising</h2>
+        <p>
+          DogHurdle may show ads using third-party ad networks (for example, Google AdMob).
+          These providers may collect information such as:
+        </p>
+        <ul>
+          <li>Device identifiers (e.g., advertising identifiers)</li>
+          <li>Approximate location (non-precise)</li>
+          <li>Ad interaction and performance data</li>
+        </ul>
+        <p class="callout">
+          We don’t control the content of third-party ads, but we choose reputable ad providers.
+        </p>
 
-  <h2>7. Changes to This Policy</h2>
-  <p>This policy may be updated. Continued use of the App after changes means acceptance.</p>
+        <h2 id="analytics">3. Analytics</h2>
+        <p>
+          DogHurdle may use analytics and diagnostic tools to understand gameplay behaviour, improve stability,
+          and fix bugs (for example, crash reporting).
+        </p>
+        <p>
+          Where used, analytics data is intended to be anonymous and is not used to identify you personally.
+        </p>
 
-  <h2>8. Contact</h2>
-  <p>If you have questions: <strong>support@doghurdleapp.com</strong></p>
+        <h2 id="kids">4. Children’s Privacy</h2>
+        <p>
+          DogHurdle is designed for a general audience. The App does not knowingly collect personal data from children.
+        </p>
+
+        <h2 id="storage">5. Data Storage</h2>
+        <p>
+          The App does not run user accounts and does not store personal data on its own servers.
+          Game progress (such as high scores) may be stored locally on your device.
+        </p>
+
+        <h2 id="third">6. Third-Party Services</h2>
+        <p>
+          DogHurdle may use third-party services (such as advertising or analytics providers). These third parties may
+          process data under their own privacy policies.
+        </p>
+
+        <h2 id="changes">7. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. If changes are made, the updated policy will be posted on
+          this page with a new effective date.
+        </p>
+
+        <h2 id="contact">8. Contact</h2>
+        <p>
+          If you have questions about this Privacy Policy, contact:
+          <br />
+          <strong>Email:</strong> <span>support@doghurdleapp.com</span>
+        </p>
+      </div>
+
+      <div class="footer">
+        <div>© 2026 DogHurdle</div>
+        <div>
+          <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
-
