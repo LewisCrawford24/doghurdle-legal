@@ -1,30 +1,344 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DogHurdle Terms & Conditions</title>
+  <meta name="description" content="Terms & Conditions for DogHurdle (iOS game)." />
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
+    :root{
+      --bg1:#4facfe;
+      --bg2:#00f2fe;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --border:rgba(17,24,39,.10);
+      --shadow: 0 20px 50px rgba(0,0,0,.18);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,.35), transparent 60%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding: 22px 14px 42px;
+    }
+
+    .wrap{
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin: 6px 0 14px;
+      color: rgba(255,255,255,.92);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size: 16px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+      font-size: 13px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .pill a{
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .pill a:hover{ text-decoration:underline; }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero{
+      position:relative;
+      padding: 26px 24px 18px;
+      background:
+        radial-gradient(700px 240px at 20% 0%, rgba(37,99,235,.18), transparent 70%),
+        radial-gradient(700px 240px at 80% 0%, rgba(16,185,129,.18), transparent 70%),
+        linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.78));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .titlebox h1{
+      margin:0 0 6px;
+      font-size: 28px;
+      line-height:1.15;
+      letter-spacing:-.3px;
+    }
+
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      line-height:1.4;
+      font-size: 14px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.10);
+      border: 1px solid rgba(37,99,235,.18);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .character{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width: 116px;
+      height: 116px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(17,24,39,.10);
+      box-shadow: 0 12px 30px rgba(0,0,0,.10);
+      overflow:hidden;
+    }
+    .character img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .character .fallback{
+      padding: 14px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+      line-height:1.35;
+    }
+
+    .content{
+      padding: 22px 24px 10px;
+    }
+
+    .toc{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding: 0 24px 18px;
+    }
+
+    .toc a{
+      text-decoration:none;
+      color: var(--text);
+      font-weight:700;
+      font-size: 13px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .toc a:hover{
+      border-color: rgba(37,99,235,.30);
+      box-shadow: 0 10px 20px rgba(37,99,235,.08);
+    }
+
+    h2{
+      margin: 22px 0 10px;
+      font-size: 18px;
+      letter-spacing:-.2px;
+    }
+
+    p, li{
+      color:#374151;
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    ul{
+      margin: 10px 0 0 20px;
+    }
+
+    .callout{
+      margin: 18px 0 0;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(245,158,11,.28);
+      background: rgba(245,158,11,.10);
+      color:#92400e;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footer{
+      padding: 18px 24px 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .footer a{
+      color: var(--accent);
+      text-decoration:none;
+      font-weight:800;
+    }
+    .footer a:hover{ text-decoration:underline; }
+
+    @media (max-width: 520px){
+      .titlebox h1{ font-size: 24px; }
+      .character{ width: 96px; height: 96px; border-radius: 18px; }
+      .content{ padding: 18px 18px 8px; }
+      .toc{ padding: 0 18px 16px; }
+      .hero{ padding: 22px 18px 16px; }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Terms & Conditions for DogHurdle</h1>
-  <p><strong>Effective Date:</strong> February 2026</p>
+  <div class="wrap">
 
-  <h2>1. License</h2>
-  <p>You are granted a non-exclusive license to use DogHurdle for personal, non-commercial use.</p>
+    <div class="topbar">
+      <div class="brand">🐾 DogHurdle</div>
+      <div class="pill">
+        <span>Also see:</span>
+        <a href="./">Privacy</a>
+      </div>
+    </div>
 
-  <h2>2. In-App Ads</h2>
-  <p>The App may display third-party advertisements. We are not responsible for ad content.</p>
+    <div class="card">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="titlebox">
+            <h1>Terms &amp; Conditions</h1>
+            <p class="subtitle">
+              These terms apply to your use of the DogHurdle app.
+            </p>
+            <div class="badge">Effective Date: February 2026</div>
+          </div>
 
-  <h2>3. No Warranties</h2>
-  <p>The App is provided “as is.” No warranty is made regarding performance or fitness for a particular purpose.</p>
+          <!-- Optional character image -->
+          <!-- Upload an image named "wirrir.png" into the repo root OR change the src -->
+          <div class="character" aria-label="DogHurdle character">
+            <img src="wirrir.png" alt="DogHurdle character" onerror="this.remove(); this.parentNode.innerHTML='<div class=&quot;fallback&quot;>Optional: upload a character image (e.g. <strong>wirrir.png</strong>)<br/>to show it here.</div>';">
+          </div>
+        </div>
+      </div>
 
-  <h2>4. Limitation of Liability</h2>
-  <p>We are not liable for any damages arising from your use of the App.</p>
+      <div class="toc" aria-label="Table of contents">
+        <a href="#license">License</a>
+        <a href="#ads">Advertising</a>
+        <a href="#acceptable">Acceptable Use</a>
+        <a href="#warranty">No Warranties</a>
+        <a href="#liability">Limitation of Liability</a>
+        <a href="#changes">Changes</a>
+        <a href="#law">Governing Law</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-  <h2>5. Governing Law</h2>
-  <p>These Terms are governed by the laws of the United Kingdom.</p>
+      <div class="content">
+        <h2 id="license">1. License</h2>
+        <p>
+          DogHurdle is licensed, not sold. You are granted a personal, non-exclusive, non-transferable license
+          to use the App for personal, non-commercial purposes, subject to these Terms.
+        </p>
+
+        <h2 id="ads">2. Advertising</h2>
+        <p>
+          The App may display third-party advertisements. We do not control the content of third-party ads
+          and are not responsible for any products, services, or claims made in advertisements.
+        </p>
+
+        <h2 id="acceptable">3. Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Attempt to reverse engineer, modify, or interfere with the App or its services</li>
+          <li>Use the App for unlawful purposes</li>
+          <li>Disrupt gameplay or exploit bugs in a way that harms the experience for others</li>
+        </ul>
+
+        <h2 id="warranty">4. No Warranties</h2>
+        <p>
+          The App is provided <strong>“as is”</strong> and <strong>“as available”</strong>, without warranties of any kind,
+          including implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
+        </p>
+
+        <h2 id="liability">5. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by law, we are not liable for any indirect, incidental, special, or
+          consequential damages arising out of or related to your use of the App.
+        </p>
+        <div class="callout">
+          Nothing in these Terms limits any consumer rights that cannot be excluded under applicable law.
+        </div>
+
+        <h2 id="changes">6. Changes</h2>
+        <p>
+          We may update the App and/or these Terms from time to time. Continued use of the App after changes
+          are posted means you accept the updated Terms.
+        </p>
+
+        <h2 id="law">7. Governing Law</h2>
+        <p>
+          These Terms are governed by the laws of the United Kingdom.
+        </p>
+
+        <h2 id="contact">8. Contact</h2>
+        <p>
+          For support or questions about these Terms:
+          <br />
+          <strong>Email:</strong> <span>support@doghurdleapp.com</span>
+        </p>
+      </div>
+
+      <div class="footer">
+        <div>© 2026 DogHurdle</div>
+        <div>
+          <a href="./">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
-
